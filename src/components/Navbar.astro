@@ -1,0 +1,62 @@
+---
+---
+
+<header class="site-header" id="top">
+  <nav class="container nav-bar" aria-label="Navegación principal">
+    <a href="#inicio" class="brand-link" aria-label="Ing. David Guevara — Ir al inicio">
+      <mark class="brand-monogram" aria-hidden="true">DG</mark>
+      <span class="brand-identity">
+        <strong class="brand-name">Ing. David Guevara</strong>
+        <small class="brand-role">Sistemas • Cloud • Astro Dev</small>
+      </span>
+    </a>
+
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="#proyectos" class="nav-item">Proyectos</a></li>
+      <li><a href="#web-suite" class="nav-item">Web Suite</a></li>
+      <li><a href="#credenciales" class="nav-item">Formación &amp; Cloud</a></li>
+      <li><a href="#firma-semantica" class="nav-item">Mi Firma HTML</a></li>
+      <li><a href="#contacto" class="nav-item">Contacto</a></li>
+    </ul>
+
+    <aside class="nav-actions" aria-label="Estado de disponibilidad">
+      <a href="#contacto" class="status-pill">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>Disponible para proyectos</span>
+      </a>
+
+      <button
+        type="button"
+        class="mobile-menu-btn"
+        id="mobile-menu-toggle"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        aria-label="Abrir menú de navegación"
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h10" stroke-linecap="round" />
+        </svg>
+      </button>
+    </aside>
+  </nav>
+</header>
+
+<script>
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  if (toggleBtn && navMenu) {
+    toggleBtn.addEventListener('click', () => {
+      const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', String(!expanded));
+      navMenu.classList.toggle('is-open');
+    });
+
+    navMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('is-open');
+      });
+    });
+  }
+</script>

@@ -1,0 +1,147 @@
+---
+---
+
+<section id="contacto" class="section-block contact-section" aria-labelledby="contact-heading">
+  <section class="container contact-grid" aria-label="Canales de contacto y formulario de proyecto">
+    <!-- Columna Izquierda: Información Directa y Terminal Táctica -->
+    <article class="contact-copy" data-reveal>
+      <p class="eyebrow-tag">// 05. INICIAR PROYECTO O COLABORACIÓN</p>
+      <h2 id="contact-heading" class="section-title">
+        Construyamos tu próxima <mark class="text-gradient">arquitectura web en Astro</mark>
+      </h2>
+      <p class="section-subtitle">
+        ¿Buscas desarrollar una plataforma corporativa a medida, optimizar el rendimiento de tu sitio actual o adquirir una licencia de <strong>The Ultimate Web Suite</strong>? Hablemos directamente.
+      </p>
+
+      <address class="contact-channels" aria-label="Enlaces directos de contacto de David Guevara">
+        <a
+          href="https://github.com/Caronte12715"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="channel-item"
+        >
+          <span class="channel-label">GitHub Oficial</span>
+          <strong class="channel-value">github.com/Caronte12715 ↗</strong>
+        </a>
+
+        <a
+          href="https://linkedin.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="channel-item"
+        >
+          <span class="channel-label">Red Profesional</span>
+          <strong class="channel-value">LinkedIn // David Guevara ↗</strong>
+        </a>
+
+        <a href="mailto:contacto@davidguevara.dev" class="channel-item">
+          <span class="channel-label">Correo Directo</span>
+          <strong class="channel-value">contacto@davidguevara.dev ↗</strong>
+        </a>
+      </address>
+
+      <!-- Terminal de Telemetría Semántica -->
+      <figure class="telemetry-console" aria-label="Resumen técnico de disponibilidad">
+        <header class="console-header">
+          <span class="window-controls" aria-hidden="true">
+            <i class="dot dot--red"></i>
+            <i class="dot dot--amber"></i>
+            <i class="dot dot--emerald"></i>
+          </span>
+          <small>ing-david@cloud-astro-node:~</small>
+        </header>
+        <pre class="console-output"><code><span class="c-prompt">$</span> npx @david-guevara/profile --verify
+<span class="c-ok">[✓] Grado:</span> Ingeniero en Sistemas + Cloud Computing
+<span class="c-ok">[✓] Certificación:</span> Academia Kodigo (Web Developer Jr.)
+<span class="c-ok">[✓] Stack &amp; Firma:</span> Astro 5 + Parallax + 100% HTML Semántico (0 &lt;div&gt;)</code></pre>
+      </figure>
+    </article>
+
+    <!-- Columna Derecha: Formulario Semántico Accesible -->
+    <article class="contact-form-card" data-tilt data-reveal>
+      <form class="semantic-form" id="portfolio-contact-form">
+        <fieldset class="form-fieldset">
+          <legend class="form-legend">Envíame los detalles de tu proyecto</legend>
+
+          <label class="form-field" for="client-name">
+            <span class="field-label">Nombre o Empresa</span>
+            <input
+              type="text"
+              id="client-name"
+              name="name"
+              placeholder="Ej. Estudio Creativo / Tu Nombre"
+              required
+              autocomplete="name"
+            />
+          </label>
+
+          <label class="form-field" for="client-email">
+            <span class="field-label">Correo Electrónico</span>
+            <input
+              type="email"
+              id="client-email"
+              name="email"
+              placeholder="nombre@empresa.com"
+              required
+              autocomplete="email"
+            />
+          </label>
+
+          <label class="form-field" for="project-type">
+            <span class="field-label">Tipo de Solución</span>
+            <select id="project-type" name="type">
+              <option value="Proyecto a Medida en Astro + Parallax">Proyecto a Medida en Astro + Parallax</option>
+              <option value="Licencia The Ultimate Web Suite">Licencia de Plantilla (The Ultimate Web Suite)</option>
+              <option value="Auditoría HTML Semántico & SEO">Auditoría HTML Semántico, Rendimiento &amp; SEO</option>
+              <option value="Contratación / Colaboración Frontend">Contratación / Colaboración Frontend</option>
+            </select>
+          </label>
+
+          <label class="form-field" for="project-message">
+            <span class="field-label">Mensaje o Requerimientos</span>
+            <textarea
+              id="project-message"
+              name="message"
+              rows="4"
+              placeholder="Cuéntame sobre tus objetivos, plazos o la plantilla que te interesa..."
+              required
+            ></textarea>
+          </label>
+
+          <button type="submit" class="btn btn--primary btn--full">
+            <span>Preparar Mensaje Directo</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+
+          <output id="form-feedback" class="form-feedback" aria-live="polite"></output>
+        </fieldset>
+      </form>
+    </article>
+  </section>
+</section>
+
+<script>
+  const form = document.getElementById('portfolio-contact-form') as HTMLFormElement | null;
+  const feedback = document.getElementById('form-feedback');
+
+  if (form && feedback) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const name = String(data.get('name') || '');
+      const email = String(data.get('email') || '');
+      const type = String(data.get('type') || 'Proyecto en Astro');
+      const message = String(data.get('message') || '');
+
+      const subject = encodeURIComponent(`[Portafolio] ${type} — ${name}`);
+      const body = encodeURIComponent(
+        `Hola David,\n\nSoy ${name} (${email}).\nInterés: ${type}\n\nDetalles:\n${message}`
+      );
+
+      feedback.textContent = '✓ Abriendo tu cliente de correo con el resumen estructurado...';
+      window.location.href = `mailto:contacto@davidguevara.dev?subject=${subject}&body=${body}`;
+    });
+  }
+</script>

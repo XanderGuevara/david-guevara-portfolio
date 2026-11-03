@@ -1,0 +1,287 @@
+---
+const featuredProjects = [
+  {
+    id: 'colegio-crismag',
+    number: '01',
+    isFlagship: true,
+    category: '★ PROYECTO INSIGNIA // Ecosistema Educativo en Astro',
+    title: 'Colegio Crismag — Portal Institucional & Oferta Académica',
+    challenge:
+      'Digitalizar la presencia oficial del Colegio Cristiano Profa. Martha Garay de Castillo (San Miguel, El Salvador), organizando 5 niveles educativos, admisiones y noticias institucionales con carga instantánea.',
+    solution:
+      'Arquitectura multipágina en Astro con motor dinámico de noticias en Markdown, rutas dedicadas desde Parvularia hasta Bachillerato, generación automática de Sitemap SEO (@astrojs/sitemap) y estructura semántica accesible.',
+    metrics: ['★ Mejor Proyecto', '5 Niveles + Blog MD', 'SEO & Sitemap Activo'],
+    stack: ['Astro', 'Markdown Content', '@astrojs/sitemap', 'HTML5 Semántico', 'SEO Local'],
+    liveUrl: 'https://www.colegiocrismag.com',
+    accent: 'emerald',
+    parallaxVisual: '-0.06',
+    parallaxContent: '0.04',
+  },
+  {
+    id: 'proemes',
+    number: '02',
+    isFlagship: false,
+    category: 'Portal Institucional // Astro 5 & Parallax',
+    title: 'PROEMES — Asociación de Profesionales y Empresarios',
+    challenge:
+      'Unificar la identidad digital de profesionales, empresarios y universitarios en una plataforma ejecutiva con carga instantánea y narrativa visual inmersiva.',
+    solution:
+      'Arquitectura en Astro 5 con iluminación volumétrica, Parallax fluido a 60fps, optimización WebP automatizada y estructura 100% HTML5 semántica sin etiquetas <div>.',
+    metrics: ['100% Lighthouse', '0 KB JS innecesario', 'WCAG AA Accesible'],
+    stack: ['Astro 5', 'HTML5 Semántico', 'Parallax 60fps', 'CSS Moderno'],
+    liveUrl: 'https://xanderguevara.github.io/proemes-landing/',
+    accent: 'cyan',
+    parallaxVisual: '0.06',
+    parallaxContent: '-0.04',
+  },
+];
+
+const webSuiteItems = [
+  {
+    slug: 'clinica-doctor',
+    sector: 'Salud & Medicina',
+    filter: 'salud',
+    title: 'Clínica & Doctor',
+    description:
+      'Landing page médica diseñada para proyectar confianza clínica, exhibir especialidades, testimonios de pacientes y agilizar el agendamiento de citas.',
+    url: 'https://caronte12715.github.io/web-medica/',
+    tags: ['Agendamiento', 'Especialidades', 'Confianza Médica'],
+  },
+  {
+    slug: 'gourmet-resto',
+    sector: 'Gastronomía',
+    filter: 'gastronomia',
+    title: 'Gourmet Restó',
+    description:
+      'Experiencia digital para restaurantes de autor y cafeterías. Menú interactivo visual, platillos insignia y módulo de reservación de mesas.',
+    url: 'https://caronte12715.github.io/web-restaurante/',
+    tags: ['Menú Digital', 'Reservas', 'Estética Culinaria'],
+  },
+  {
+    slug: 'sala-belleza',
+    sector: 'Estética & Bienestar',
+    filter: 'bienestar',
+    title: 'Sala de Belleza & Spa',
+    description:
+      'Vitrina sofisticada para salones y spas. Presenta catálogo de tratamientos, portafolio de resultados y reserva rápida por WhatsApp.',
+    url: 'https://caronte12715.github.io/web-salon/',
+    tags: ['Catálogo Visual', 'Citas Online', 'Diseño Premium'],
+  },
+  {
+    slug: 'iglesia-digital',
+    sector: 'Comunidad & Organizaciones',
+    filter: 'comunidad',
+    title: 'Iglesia Digital',
+    description:
+      'Plataforma pensada para conectar congregaciones: calendario de eventos, horarios de reuniones, transmisiones y canal de donaciones.',
+    url: 'https://caronte12715.github.io/web-iglesia/',
+    tags: ['Eventos', 'Horarios', 'Comunidad'],
+  },
+  {
+    slug: 'tech-fix-pc',
+    sector: 'Tecnología & Hardware',
+    filter: 'tecnologia',
+    title: 'Tech Fix — Soporte PC',
+    description:
+      'Solución comercial para centros de soporte técnico, mantenimiento y venta de hardware con estética moderna orientada a diagnóstico rápido.',
+    url: 'https://caronte12715.github.io/web-soporte-pc/',
+    tags: ['Servicio Técnico', 'Catálogo Hardware', 'Cotización'],
+  },
+];
+---
+
+<!-- SECCIÓN 1: CASOS DE ESTUDIO EN ASTRO CON PARALLAX ASIMÉTRICO -->
+<section id="proyectos" class="section-block" aria-labelledby="projects-heading">
+  <header class="container section-header" data-reveal>
+    <p class="eyebrow-tag">// 01. CASOS DE ESTUDIO DESTACADOS</p>
+    <h2 id="projects-heading" class="section-title">
+      Proyectos construidos con <mark class="text-gradient">Astro &amp; Parallax</mark>
+    </h2>
+    <p class="section-subtitle">
+      Cada proyecto combina velocidad de carga extrema, capas de profundidad visual y una estructura DOM semántica pensada para posicionamiento SEO y mantenibilidad.
+    </p>
+  </header>
+
+  <section class="container case-studies-stack" aria-label="Lista de casos de estudio principales">
+    {
+      featuredProjects.map((project, index) => (
+        <article
+          class={`case-study-card ${index % 2 === 1 ? 'case-study-card--reverse' : ''} ${project.isFlagship ? 'case-study-card--flagship' : ''}`}
+          data-reveal
+        >
+          <!-- Capa Visual con Velocidad Parallax Independiente -->
+          <figure
+            class={`case-visual case-visual--${project.accent}`}
+            data-parallax={project.parallaxVisual}
+            data-parallax-mode="local"
+            data-tilt
+          >
+            <header class="browser-chrome" aria-hidden="true">
+              <span class="window-controls">
+                <i class="dot dot--red" />
+                <i class="dot dot--amber" />
+                <i class="dot dot--emerald" />
+              </span>
+              <small class="browser-url">
+                {project.isFlagship ? 'colegiocrismag.com' : `${project.id}.astro.build`}
+              </small>
+              {project.isFlagship && <mark class="window-status">★ MEJOR PROYECTO</mark>}
+            </header>
+
+            <section class="visual-canvas" aria-label={`Vista previa conceptual de ${project.title}`}>
+              <span class="visual-index" aria-hidden="true">{project.number}</span>
+              <h3 class="visual-brand-title">{project.title.split('—')[0]}</h3>
+              <ul class="visual-metrics-pills">
+                {project.metrics.map((metric) => (
+                  <li>{metric}</li>
+                ))}
+              </ul>
+            </section>
+
+            <figcaption class="visual-caption">
+              <span>Arquitectura: <strong>HTML5 Semántico + Astro</strong></span>
+              <span>Render: <strong>SSG Estático</strong></span>
+            </figcaption>
+          </figure>
+
+          <!-- Capa de Contenido con Parallax Contrapuesto -->
+          <section
+            class="case-body"
+            data-parallax={project.parallaxContent}
+            data-parallax-mode="local"
+            aria-label={`Detalles técnicos de ${project.title}`}
+          >
+            <header class="case-meta">
+              <mark class="case-number">{project.number}</mark>
+              <small class={`case-category ${project.isFlagship ? 'case-category--flagship' : ''}`}>
+                {project.category}
+              </small>
+            </header>
+
+            <h3 class="case-title">{project.title}</h3>
+
+            <dl class="case-narrative">
+              <article class="narrative-item">
+                <dt>El Reto</dt>
+                <dd>{project.challenge}</dd>
+              </article>
+              <article class="narrative-item">
+                <dt>Solución &amp; Firma Semántica</dt>
+                <dd>{project.solution}</dd>
+              </article>
+            </dl>
+
+            <ul class="tag-list" aria-label="Tecnologías utilizadas">
+              {project.stack.map((tech) => (
+                <li class="tech-tag">{tech}</li>
+              ))}
+            </ul>
+
+            <footer class="case-actions">
+              <a
+                href={project.liveUrl}
+                target={project.liveUrl.startsWith('http') ? '_blank' : undefined}
+                rel={project.liveUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
+                class="btn btn--outline"
+              >
+                <span>
+                  {project.liveUrl.startsWith('http')
+                    ? 'Explorar Despliegue en Vivo'
+                    : 'Solicitar Demo Técnica'}
+                </span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                  <path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </footer>
+          </section>
+        </article>
+      ))
+    }
+  </section>
+</section>
+
+<!-- SECCIÓN 2: THE ULTIMATE WEB SUITE (CATÁLOGO COMERCIAL) -->
+<section id="web-suite" class="section-block section-block--alt" aria-labelledby="suite-heading">
+  <header class="container section-header" data-reveal>
+    <p class="eyebrow-tag">// 02. THE ULTIMATE WEB SUITE</p>
+    <h2 id="suite-heading" class="section-title">
+      Soluciones Comerciales <mark class="text-gradient">Listas para Producción</mark>
+    </h2>
+    <p class="section-subtitle">
+      Catálogo de arquitecturas web especializadas por industria, optimizadas para conversión local, velocidad móvil y despliegue inmediato.
+    </p>
+
+    <menu class="suite-filter-bar" aria-label="Filtrar catálogo por industria">
+      <li><button type="button" class="filter-chip is-active" data-filter="all">Todas (5)</button></li>
+      <li><button type="button" class="filter-chip" data-filter="salud">Salud</button></li>
+      <li><button type="button" class="filter-chip" data-filter="gastronomia">Gastronomía</button></li>
+      <li><button type="button" class="filter-chip" data-filter="bienestar">Belleza &amp; Spa</button></li>
+      <li><button type="button" class="filter-chip" data-filter="comunidad">Comunidad</button></li>
+      <li><button type="button" class="filter-chip" data-filter="tecnologia">Tecnología</button></li>
+    </menu>
+  </header>
+
+  <section class="container suite-grid" aria-label="Plantillas comerciales en vivo">
+    {
+      webSuiteItems.map((item, idx) => (
+        <article
+          class="suite-card"
+          data-category={item.filter}
+          data-tilt
+          data-reveal
+          style={`--stagger: ${idx * 70}ms;`}
+        >
+          <header class="suite-card-top">
+            <small class="suite-sector">{item.sector}</small>
+            <mark class="suite-badge">Demo Activa</mark>
+          </header>
+
+          <h3 class="suite-card-title">{item.title}</h3>
+          <p class="suite-card-desc">{item.description}</p>
+
+          <ul class="tag-list suite-tags" aria-label="Características incluidas">
+            {item.tags.map((t) => (
+              <li class="tech-tag">{t}</li>
+            ))}
+          </ul>
+
+          <footer class="suite-card-footer">
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="suite-demo-link"
+              aria-label={`Ver demostración en vivo de ${item.title} (abre en una nueva pestaña)`}
+            >
+              <span>Ver Demo en Vivo</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </footer>
+        </article>
+      ))
+    }
+  </section>
+</section>
+
+<script>
+  const filterButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-filter]'));
+  const suiteCards = Array.from(document.querySelectorAll<HTMLElement>('.suite-card[data-category]'));
+
+  for (const btn of filterButtons) {
+    btn.addEventListener('click', () => {
+      const selected = btn.dataset.filter || 'all';
+
+      for (const b of filterButtons) {
+        b.classList.toggle('is-active', b === btn);
+      }
+
+      for (const card of suiteCards) {
+        const matches = selected === 'all' || card.dataset.category === selected;
+        card.hidden = !matches;
+      }
+    });
+  }
+</script>

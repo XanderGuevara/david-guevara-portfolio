@@ -1,0 +1,150 @@
+---
+const credentials = [
+  {
+    code: 'GRADO UNIVERSITARIO',
+    badge: 'Título Profesional',
+    title: 'Ingeniero en Sistemas',
+    institution: 'Formación Superior en Ingeniería de Software y Sistemas',
+    description:
+      'Sólida base en ingeniería de software, análisis y diseño de sistemas, bases de datos, redes, estructuras algorítmicas y liderazgo técnico orientado a resolver problemas reales de negocio.',
+    highlights: ['Arquitectura de Software', 'Bases de Datos & Redes', 'Ingeniería de Requisitos'],
+    parallax: '-0.05',
+  },
+  {
+    code: 'ESPECIALIZACIÓN',
+    badge: 'Cloud Architecture',
+    title: 'Preespecialización en Cloud Computing',
+    institution: 'Infraestructura en la Nube & Despliegue Escalable',
+    description:
+      'Diseño y despliegue de aplicaciones sobre entornos Cloud modernos, integración y entrega continua (CI/CD), alta disponibilidad, seguridad perimetral y optimización de recursos en la nube.',
+    highlights: ['Infraestructura Cloud', 'CI/CD & DevOps', 'Alta Disponibilidad & CDN'],
+    parallax: '0.05',
+  },
+  {
+    code: 'CERTIFICACIÓN OFICIAL',
+    badge: 'Academia Kodigo',
+    title: 'Web Developer Jr. Certificado',
+    institution: 'Academia de Tecnología Creativa KODIGO',
+    description:
+      'Entrenamiento intensivo orientado a la industria en desarrollo web moderno, dominio de estándares HTML5 semánticos, CSS moderno, JavaScript, control de versiones con Git y metodologías ágiles.',
+    highlights: ['Frontend Moderno', 'Clean Code & Git', 'Proyectos de Industria'],
+    parallax: '-0.04',
+  },
+];
+
+const steps = [
+  {
+    step: '01',
+    phase: 'Ingeniería & Semántica',
+    time: 'Fase Estructural',
+    title: 'Análisis de Sistemas y Esquema DOM Semántico',
+    description:
+      'Aplicación de principios de Ingeniería en Sistemas para modelar la información con etiquetas HTML5 nativas (<header>, <main>, <section>, <article>), garantizando SEO y accesibilidad WCAG.',
+  },
+  {
+    step: '02',
+    phase: 'Desarrollo en Astro',
+    time: 'Fase de Compilación',
+    title: 'Arquitectura Modular Zero-JS & Activos Optimizados',
+    description:
+      'Construcción de componentes reutilizables en Astro 5 con estándares de Kodigo Academy, conversión automática de imágenes y eliminación de bloqueos en el navegador.',
+  },
+  {
+    step: '03',
+    phase: 'Coreografía Parallax 60fps',
+    time: 'Fase Interactiva',
+    title: 'Profundidad Visual Acelerada por GPU',
+    description:
+      'Integración de capas Parallax mediante CSS Scroll-Driven Animations y translate3d(), logrando fluidez de 60 cuadros por segundo en escritorio y dispositivos móviles.',
+  },
+  {
+    step: '04',
+    phase: 'Cloud Computing & CI/CD',
+    time: 'Fase de Producción',
+    title: 'Despliegue en la Nube y Distribución Global CDN',
+    description:
+      'Puesta en producción aplicando buenas prácticas de Cloud Computing: pipelines automatizados, certificados SSL, distribución edge y auditoría Lighthouse 100/100.',
+  },
+];
+---
+
+<!-- SECCIÓN DE FORMACIÓN ACADÉMICA, CLOUD COMPUTING Y CERTIFICACIONES -->
+<section id="credenciales" class="section-block" aria-labelledby="credentials-heading">
+  <header class="container section-header" data-reveal>
+    <p class="eyebrow-tag">// 03. RESPALDO ACADÉMICO &amp; CERTIFICACIONES</p>
+    <h2 id="credentials-heading" class="section-title">
+      Ingeniería en Sistemas, <mark class="text-gradient">Cloud Computing</mark> y <mark class="text-gradient">Kodigo</mark>
+    </h2>
+    <p class="section-subtitle">
+      La diferencia entre una página web común y una plataforma profesional radica en el respaldo de ingeniería, visión de infraestructura en la nube y formación técnica certificada.
+    </p>
+  </header>
+
+  <section class="container credentials-grid" aria-label="Títulos y certificaciones profesionales">
+    {
+      credentials.map((cred) => (
+        <article
+          class="credential-card"
+          data-parallax={cred.parallax}
+          data-parallax-mode="local"
+          data-tilt
+          data-reveal
+        >
+          <header class="credential-card-top">
+            <small class="credential-code">{cred.code}</small>
+            <mark class="credential-badge">{cred.badge}</mark>
+          </header>
+
+          <h3 class="credential-title">{cred.title}</h3>
+          <p class="credential-institution">{cred.institution}</p>
+          <p class="credential-desc">{cred.description}</p>
+
+          <ul class="tag-list credential-tags" aria-label="Competencias clave">
+            {cred.highlights.map((item) => (
+              <li class="tech-tag">{item}</li>
+            ))}
+          </ul>
+        </article>
+      ))
+    }
+  </section>
+</section>
+
+<!-- SECCIÓN METODOLOGÍA DE INGENIERÍA -->
+<section id="proceso" class="section-block section-block--alt" aria-labelledby="process-heading">
+  <header class="container section-header" data-reveal>
+    <p class="eyebrow-tag">// 05. METODOLOGÍA DE INGENIERÍA</p>
+    <h2 id="process-heading" class="section-title">
+      Del análisis de sistemas al <mark class="text-gradient">despliegue en la nube</mark>
+    </h2>
+    <p class="section-subtitle">
+      Un flujo de ingeniería disciplinado donde la estética moderna se une con estándares de Cloud Computing y calidad de código fuente.
+    </p>
+  </header>
+
+  <ol class="container process-timeline" aria-label="Etapas del proceso de desarrollo">
+    {
+      steps.map((item, idx) => (
+        <li class="timeline-item" data-reveal>
+          <aside
+            class="timeline-badge"
+            data-parallax={idx % 2 === 0 ? '-0.04' : '0.04'}
+            data-parallax-mode="local"
+            aria-hidden="true"
+          >
+            <span>{item.step}</span>
+          </aside>
+
+          <article class="timeline-card" data-tilt>
+            <header class="timeline-card-header">
+              <small class="timeline-phase">{item.phase}</small>
+              <time class="timeline-duration" datetime={`P${idx + 1}D`}>{item.time}</time>
+            </header>
+            <h3 class="timeline-title">{item.title}</h3>
+            <p class="timeline-desc">{item.description}</p>
+          </article>
+        </li>
+      ))
+    }
+  </ol>
+</section>

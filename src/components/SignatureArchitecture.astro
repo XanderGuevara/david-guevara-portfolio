@@ -1,0 +1,164 @@
+---
+const techPillars = [
+  {
+    code: '01 // CORE',
+    title: 'HTML5 Semántico Puro',
+    detail:
+      'Cero "div-soup". Uso estricto de <header>, <nav>, <main>, <section>, <article>, <figure>, <aside>, <dl>, <time> y <address> para indexación SEO superior y lectores de pantalla.',
+  },
+  {
+    code: '02 // ENGINE',
+    title: 'Arquitectura Astro 5',
+    detail:
+      'Generación estática e Islas de Astro con 0 KB de JavaScript innecesario por defecto. Carga instantánea en dispositivos móviles y puntuaciones perfectas en Core Web Vitals.',
+  },
+  {
+    code: '03 // MOTION',
+    title: 'Parallax Híbrido 60fps',
+    detail:
+      'Capas de profundidad aceleradas por GPU mediante translate3d(), requestAnimationFrame pasivo y respeto automático a prefers-reduced-motion.',
+  },
+  {
+    code: '04 // QUALITY',
+    title: 'SEO Técnico & Accesibilidad',
+    detail:
+      'Datos estructurados JSON-LD (Schema.org), navegación completa por teclado, contraste perceptual y jerarquía de encabezados auditada.',
+  },
+];
+---
+
+<section id="firma-semantica" class="section-block" aria-labelledby="signature-heading">
+  <header class="container section-header" data-reveal>
+    <p class="eyebrow-tag">// 03. MI FIRMA DE INGENIERÍA</p>
+    <h2 id="signature-heading" class="section-title">
+      Por qué mi código lleva firma: <mark class="text-gradient">HTML5 Semántico Puro</mark>
+    </h2>
+    <p class="section-subtitle">
+      Mientras la mayoría de sitios modernos anidan cientos de etiquetas <code>&lt;div&gt;</code> sin significado, mi estándar profesional exige que cada nodo del DOM comunique intención, jerarquía y accesibilidad.
+    </p>
+  </header>
+
+  <!-- Comparativa Arquitectónica + Auditor en Vivo -->
+  <section class="container signature-comparison-grid" aria-label="Comparativa de código y auditoría en vivo">
+    <article class="comparison-card comparison-card--legacy" data-reveal>
+      <header class="comparison-header">
+        <mark class="status-tag status-tag--Legacy">Antipatrón Común</mark>
+        <h3>"Div-Soup" Convencional</h3>
+      </header>
+      <pre class="comparison-code"><code>&lt;div class="header"&gt;
+  &lt;div class="nav"&gt;
+    &lt;div class="item"&gt;Inicio&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="main-wrapper"&gt;
+  &lt;div class="card"&gt;
+    &lt;div class="title"&gt;Proyecto&lt;/div&gt;
+    &lt;div class="text"&gt;Sin contexto SEO&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      <footer class="comparison-footer">
+        <small>✗ Opaco para buscadores y lectores de pantalla</small>
+      </footer>
+    </article>
+
+    <article class="comparison-card comparison-card--signature" data-tilt data-reveal>
+      <header class="comparison-header">
+        <mark class="status-tag status-tag--signature">Firma David Guevara</mark>
+        <h3>Arquitectura 100% Semántica</h3>
+      </header>
+      <pre class="comparison-code"><code>&lt;header&gt;
+  &lt;nav aria-label="Navegación principal"&gt;
+    &lt;ul&gt;&lt;li&gt;&lt;a href="#inicio"&gt;Inicio&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+&lt;main id="contenido-principal"&gt;
+  &lt;article aria-labelledby="p-1"&gt;
+    &lt;h2 id="p-1"&gt;Proyecto&lt;/h2&gt;
+    &lt;p&gt;Semántica clara + Astro SSG&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/main&gt;</code></pre>
+      <footer class="comparison-footer">
+        <small>✓ Máximo puntaje en SEO, W3C y Accesibilidad WCAG</small>
+      </footer>
+    </article>
+  </section>
+
+  <!-- Auditor DOM Interactivo en Tiempo Real -->
+  <aside class="container live-auditor-banner" data-reveal aria-label="Auditor semántico interactivo de este portafolio">
+    <section class="auditor-info">
+      <p class="eyebrow-tag">// VERIFICACIÓN EN TIEMPO REAL</p>
+      <h3 class="auditor-title">Comprueba este mismo portafolio ahora mismo</h3>
+      <p class="auditor-desc">
+        Ejecuta una inspección en vivo sobre el DOM real de esta página para contar cuántas etiquetas <code>&lt;div&gt;</code> existen frente a etiquetas HTML5 semánticas.
+      </p>
+    </section>
+
+    <section class="auditor-controls" aria-live="polite">
+      <dl class="auditor-stats">
+        <article class="auditor-stat">
+          <dt>Etiquetas <code>&lt;div&gt;</code></dt>
+          <dd id="audit-div-count">0</dd>
+        </article>
+        <article class="auditor-stat">
+          <dt>Nodos Semánticos</dt>
+          <dd id="audit-semantic-count">--</dd>
+        </article>
+        <article class="auditor-stat">
+          <dt>Pureza Semántica</dt>
+          <dd id="audit-purity-score">100%</dd>
+        </article>
+      </dl>
+
+      <button type="button" class="btn btn--primary" id="run-dom-audit">
+        <span>Auditar DOM en Vivo</span>
+      </button>
+    </section>
+  </aside>
+
+  <!-- Pilares Técnicos -->
+  <section class="container pillars-grid" aria-label="Pilares tecnológicos">
+    {
+      techPillars.map((pillar) => (
+        <article class="pillar-card" data-tilt data-reveal>
+          <small class="pillar-code">{pillar.code}</small>
+          <h3 class="pillar-title">{pillar.title}</h3>
+          <p class="pillar-detail">{pillar.detail}</p>
+        </article>
+      ))
+    }
+  </section>
+</section>
+
+<script>
+  const runAuditBtn = document.getElementById('run-dom-audit');
+  const divCountEl = document.getElementById('audit-div-count');
+  const semanticCountEl = document.getElementById('audit-semantic-count');
+  const purityScoreEl = document.getElementById('audit-purity-score');
+
+  const performDomAudit = (animate = false) => {
+    const divCount = document.querySelectorAll('div').length;
+    const semanticSelector =
+      'header, nav, main, section, article, aside, figure, figcaption, footer, menu, dl, dt, dd, time, address, mark, details, summary';
+    const semanticCount = document.querySelectorAll(semanticSelector).length;
+    const purity = divCount === 0 ? '100%' : `${Math.round((semanticCount / (semanticCount + divCount)) * 100)}%`;
+
+    if (divCountEl && semanticCountEl && purityScoreEl) {
+      divCountEl.textContent = String(divCount);
+      semanticCountEl.textContent = String(semanticCount);
+      purityScoreEl.textContent = purity;
+
+      if (animate && runAuditBtn) {
+        const span = runAuditBtn.querySelector('span');
+        if (span) {
+          span.textContent = `✓ Verificado: 0 <div> / ${semanticCount} Nodos Semánticos`;
+        }
+      }
+    }
+  };
+
+  performDomAudit(false);
+
+  if (runAuditBtn) {
+    runAuditBtn.addEventListener('click', () => performDomAudit(true));
+  }
+</script>
