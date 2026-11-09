@@ -47,6 +47,7 @@ npm run preview
 ## Proyectos para destacar
 
 - [Colegio Crismag](https://colegiocrismag.com) — sitio institucional.
+- [CineVerse — buscador de películas](https://github.com/XanderGuevara/cineverse-buscador-peliculas) — aplicación web con JavaScript, Fetch API y TMDB.
 - [PROEMES — landing page](https://github.com/XanderGuevara/proemes-landing) — proyecto Astro.
 
 ## Forma de trabajo
