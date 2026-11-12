@@ -2,33 +2,63 @@
 const credentials = [
   {
     code: 'GRADO UNIVERSITARIO',
-    badge: 'Título Profesional',
-    title: 'Ingeniero en Sistemas',
-    institution: 'Formación Superior en Ingeniería de Software y Sistemas',
+    badge: 'Egresado',
+    title: 'Ingeniería en Sistemas y Redes Informáticas',
+    institution: 'Universidad Gerardo Barrios (UGB) · Graduación programada: diciembre de 2026',
     description:
-      'Sólida base en ingeniería de software, análisis y diseño de sistemas, bases de datos, redes, estructuras algorítmicas y liderazgo técnico orientado a resolver problemas reales de negocio.',
-    highlights: ['Arquitectura de Software', 'Bases de Datos & Redes', 'Ingeniería de Requisitos'],
+      'Formación en ingeniería de software, análisis de sistemas, bases de datos, redes y resolución de problemas tecnológicos orientados al negocio.',
+    highlights: ['Software y Sistemas', 'Bases de Datos & Redes', 'Análisis de Requisitos'],
     parallax: '-0.05',
   },
   {
     code: 'ESPECIALIZACIÓN',
     badge: 'Cloud Architecture',
     title: 'Preespecialización en Cloud Computing',
-    institution: 'Infraestructura en la Nube & Despliegue Escalable',
+    institution: 'Universidad Gerardo Barrios (UGB) · Finalizada en agosto de 2026',
     description:
-      'Diseño y despliegue de aplicaciones sobre entornos Cloud modernos, integración y entrega continua (CI/CD), alta disponibilidad, seguridad perimetral y optimización de recursos en la nube.',
-    highlights: ['Infraestructura Cloud', 'CI/CD & DevOps', 'Alta Disponibilidad & CDN'],
+      'Fundamentos de servicios, infraestructura y despliegue en entornos de nube con enfoque en AWS y Microsoft Azure.',
+    highlights: ['Fundamentos de AWS', 'Microsoft Azure', 'Despliegue Cloud'],
     parallax: '0.05',
   },
   {
-    code: 'CERTIFICACIÓN OFICIAL',
-    badge: 'Academia Kodigo',
-    title: 'Web Developer Jr. Certificado',
-    institution: 'Academia de Tecnología Creativa KODIGO',
+    code: 'FORMACIÓN PROFESIONAL',
+    badge: 'En curso',
+    title: 'Bootcamp de Desarrollo Web Junior',
+    institution: 'Academia Kodigo · Finalización prevista: diciembre de 2026',
     description:
-      'Entrenamiento intensivo orientado a la industria en desarrollo web moderno, dominio de estándares HTML5 semánticos, CSS moderno, JavaScript, control de versiones con Git y metodologías ágiles.',
-    highlights: ['Frontend Moderno', 'Clean Code & Git', 'Proyectos de Industria'],
+      'Formación práctica en HTML5 semántico, CSS3, JavaScript, Git y desarrollo web orientado a proyectos. React inicia en noviembre de 2026.',
+    highlights: ['HTML5 & CSS3', 'JavaScript', 'Git y GitHub'],
     parallax: '-0.04',
+  },
+];
+
+const professionalHighlights = [
+  {
+    code: 'EXPERIENCIA LABORAL',
+    badge: '21 años',
+    title: 'Facturación nacional y atención mayorista',
+    institution: 'Almacén José N. Batarse',
+    description:
+      'Gestión de facturación y documentación comercial para clientes mayoristas a nivel nacional, con seguimiento de pedidos, consultas e incidencias.',
+    highlights: ['Procesos comerciales', 'Atención al cliente', 'Software administrativo'],
+  },
+  {
+    code: 'SOPORTE TI',
+    badge: 'Práctico',
+    title: 'Sistemas, equipos y redes',
+    institution: 'Diagnóstico y mantenimiento informático',
+    description:
+      'Instalación de Windows, resolución de fallas de hardware y software, configuración de routers, switches y redes Wi-Fi.',
+    highlights: ['Hardware y software', 'Redes Wi-Fi', 'Mantenimiento'],
+  },
+  {
+    code: 'OBJETIVO PROFESIONAL',
+    badge: 'Disponible',
+    title: 'Operaciones con componente tecnológico',
+    institution: 'Soporte TI · Administración · Servicios informáticos',
+    description:
+      'Busco oportunidades donde pueda unir organización, atención al cliente, seguimiento de procesos y soluciones digitales.',
+    highlights: ['Orden y responsabilidad', 'Aprendizaje autónomo', 'Comunicación comercial'],
   },
 ];
 
@@ -68,15 +98,47 @@ const steps = [
 ];
 ---
 
+<!-- SECCIÓN DE PERFIL PROFESIONAL Y EXPERIENCIA -->
+<section id="experiencia" class="section-block section-block--alt" aria-labelledby="experience-heading">
+  <header class="container section-header" data-reveal>
+    <p class="eyebrow-tag">// 03. PERFIL PROFESIONAL &amp; EXPERIENCIA</p>
+    <h2 id="experience-heading" class="section-title">
+      Sistemas, operaciones y <mark class="text-gradient">soporte tecnológico</mark>
+    </h2>
+    <p class="section-subtitle">
+      Profesional de sistemas y redes informáticas con experiencia en facturación nacional, atención mayorista, soporte TI y proyectos web con Astro.
+    </p>
+  </header>
+
+  <section class="container credentials-grid" aria-label="Experiencia y fortalezas profesionales">
+    {
+      professionalHighlights.map((item) => (
+        <article class="credential-card" data-tilt data-reveal>
+          <header class="credential-card-top">
+            <small class="credential-code">{item.code}</small>
+            <mark class="credential-badge">{item.badge}</mark>
+          </header>
+          <h3 class="credential-title">{item.title}</h3>
+          <p class="credential-institution">{item.institution}</p>
+          <p class="credential-desc">{item.description}</p>
+          <ul class="tag-list credential-tags" aria-label="Competencias">
+            {item.highlights.map((highlight) => <li class="tech-tag">{highlight}</li>)}
+          </ul>
+        </article>
+      ))
+    }
+  </section>
+</section>
+
 <!-- SECCIÓN DE FORMACIÓN ACADÉMICA, CLOUD COMPUTING Y CERTIFICACIONES -->
 <section id="credenciales" class="section-block" aria-labelledby="credentials-heading">
   <header class="container section-header" data-reveal>
-    <p class="eyebrow-tag">// 03. RESPALDO ACADÉMICO &amp; CERTIFICACIONES</p>
+    <p class="eyebrow-tag">// 04. FORMACIÓN ACADÉMICA &amp; CLOUD</p>
     <h2 id="credentials-heading" class="section-title">
-      Ingeniería en Sistemas, <mark class="text-gradient">Cloud Computing</mark> y <mark class="text-gradient">Kodigo</mark>
+      Ingeniería, <mark class="text-gradient">Cloud Computing</mark> y desarrollo web
     </h2>
     <p class="section-subtitle">
-      La diferencia entre una página web común y una plataforma profesional radica en el respaldo de ingeniería, visión de infraestructura en la nube y formación técnica certificada.
+      Formación universitaria, especialización en nube y aprendizaje práctico orientado a resolver necesidades reales de negocio.
     </p>
   </header>
 
