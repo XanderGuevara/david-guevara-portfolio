@@ -296,18 +296,25 @@ mark {
   display: flex;
   flex-direction: column;
   line-height: 1.15;
+  min-width: 0;
 }
 
 .brand-name {
   font-family: var(--font-display);
   font-size: 0.98rem;
   letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .brand-role {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .nav-links {
@@ -424,6 +431,12 @@ mark {
   grid-template-columns: 1.12fr 0.88fr;
   gap: clamp(2.2rem, 4.5vw, 4rem);
   align-items: center;
+}
+
+.hero-grid > *,
+.case-study-card > *,
+.contact-grid > * {
+  min-width: 0;
 }
 
 .eyebrow-tag {
@@ -672,6 +685,7 @@ mark {
 .browser-chrome,
 .console-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
@@ -714,6 +728,13 @@ mark {
   border: 1px solid rgba(16, 185, 129, 0.35);
 }
 
+.window-filename {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .code-window-body {
   padding: 1.35rem;
   font-family: var(--font-mono);
@@ -739,7 +760,9 @@ mark {
 
 .code-window-footer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  gap: 0.5rem 1rem;
   padding: 0.75rem 1.15rem;
   background: rgba(16, 185, 129, 0.06);
   border-top: 1px solid var(--border-subtle);
@@ -1045,7 +1068,7 @@ mark {
 
 .suite-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 1.5rem;
 }
 
@@ -1069,7 +1092,9 @@ mark {
 
 .suite-card-top {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  gap: 0.4rem 1rem;
   align-items: center;
   gap: 0.5rem;
 }
@@ -1369,6 +1394,7 @@ mark {
 
 .channel-item {
   display: flex;
+  min-width: 0;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.25rem;
@@ -1395,6 +1421,7 @@ mark {
   font-family: var(--font-display);
   font-size: 0.95rem;
   color: #6ee7b7;
+  overflow-wrap: anywhere;
 }
 
 .telemetry-console {
@@ -1409,6 +1436,15 @@ mark {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--text-secondary);
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.console-header small {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .c-prompt {
@@ -1428,6 +1464,7 @@ mark {
 .form-fieldset {
   border: none;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   gap: 1.15rem;
 }
@@ -1597,9 +1634,7 @@ mark {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
-}
 
-@media (max-width: 768px) {
   .mobile-menu-btn {
     display: inline-grid;
   }
@@ -1625,9 +1660,72 @@ mark {
   .nav-links.is-open {
     display: flex;
   }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: min(100% - 2rem, 1220px);
+  }
+
+  .site-header {
+    top: 0.5rem;
+    margin-top: 0.5rem;
+    padding-inline: 0.5rem;
+  }
+
+  .nav-bar {
+    gap: 0.5rem;
+    padding: 0.65rem 0.8rem;
+  }
+
+  .brand-link {
+    min-width: 0;
+  }
+
+  .brand-name {
+    font-size: 0.86rem;
+  }
+
+  .brand-role {
+    font-size: 0.6rem;
+  }
 
   .hero-metrics {
     grid-template-columns: 1fr;
+  }
+
+  .floating-badge--top {
+    right: 0.5rem;
+  }
+
+  .floating-badge--bottom {
+    left: 0.5rem;
+  }
+
+  .timeline-item {
+    gap: 0.75rem;
+  }
+
+  .timeline-badge {
+    width: 42px;
+    height: 42px;
+    font-size: 0.95rem;
+  }
+
+  .timeline-card,
+  .contact-form-card {
+    padding: 1.2rem;
+  }
+
+  .channel-item {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .channel-value {
+    font-size: 0.84rem;
+    text-align: left;
   }
 
   .footer-grid {
